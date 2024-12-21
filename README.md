@@ -1,66 +1,243 @@
+
+
 # Interior Terms Matrix
 
-A comprehensive React-based tool for visualizing and managing interior design project stages and responsibilities.
+## The Problem
 
-## Overview
+In the interior design world, there's a constant headache: nobody fucking knows who's responsible for what. This leads to:
+- Endless disputes between designers and clients
+- Blown budgets due to "unexpected" work
+- Missed deadlines because "we thought you were doing that"
+- Ruined relationships and legal battles
+- Mental breakdowns for everyone involved
 
-The Interior Terms Matrix is a professional tool designed to help interior designers, clients, and contractors understand the scope and responsibilities at each stage of an interior design project. It provides a clear visual representation of who is responsible for what at each project phase.
+## What This Tool Does
 
-## Features
+Imagine a matrix where one axis shows all project stages and the other shows all types of work. Each cell clearly indicates:
+- Who's specifically responsible (Designer or Client)
+- What's included in the scope
+- What's explicitly NOT included
+- What risks might pop up
+- How long it typically takes
 
-### Project Stages
-The matrix covers 12 key project stages divided into 4 categories:
+## How It Works
 
-#### Basic Design (EBD, EPD, EFD)
-- **EBD (Ex Basic Design)**: Basic design concept and visualization
-- **EPD (Ex Project Design)**: Detailed technical documentation
-- **EFD (Ex Full Design)**: Complete design project with specifications
+### 1. Project Stages (Left to Right)
 
-#### Project Support (FCA, FCS, FCM)
-- **FCA (Free Construction Assistance)**: Consultation support
-- **FCS (Free Construction Supervision)**: Author's supervision
-- **FCM (Free Construction Management)**: Full project management
+#### Basic Design (EBD → EPD → EFD)
+- **EBD (Ex Basic Design)**
+  - Layout solutions
+  - 3D visualizations
+  - Design concept
+  - Basic specifications
 
-#### Construction (CBO, CPT, CIP)
-- **CBO (Construction Basic Organization)**: Basic construction organization
-- **CPT (Construction Project Team)**: Project team management
-- **CIP (Construction Insurance Project)**: Insured construction process
+- **EPD (Ex Project Design)**
+  - Everything in EBD +
+  - Full set of drawings
+  - Wall elevations
+  - Material layouts
+  - Details and nodes
 
-#### Implementation (DAP, DFU, DFP)
-- **DAP (Delivered At Project)**: Implementation until finishing works
-- **DFU (Delivered Fully Unfurnished)**: Full implementation without furniture
-- **DFP (Delivered Fully Project)**: Complete project implementation
+- **EFD (Ex Full Design)**
+  - Everything in EPD +
+  - Detailed specifications
+  - Material schedules
+  - Equipment selection
+  - Implementation guidelines
 
-### Responsibility Areas
-The matrix covers 15 key areas of responsibility:
-- Planning solutions
-- Visualization
+#### Implementation Support (FCA → FCS → FCM)
+- **FCA (Free Construction Assistance)**
+  - Material consultations
+  - Contractor selection help
+  - Technical Q&A
+  - Basic recommendations
+
+- **FCS (Free Construction Supervision)**
+  - Everything in FCA +
+  - Regular site visits
+  - Project compliance control
+  - Solution adjustments
+  - Technical supervision
+
+- **FCM (Free Construction Management)**
+  - Everything in FCS +
+  - Full project management
+  - Contractor coordination
+  - Budget control
+  - Timeline management
+
+#### Construction (CBO → CPT → CIP)
+- **CBO (Construction Basic Organization)**
+  - Construction site setup
+  - Basic construction works
+  - Rough finishing
+  - Engineering prep
+
+- **CPT (Construction Project Team)**
+  - Everything in CBO +
+  - Full construction team
+  - Engineering systems
+  - Finish preparation
+  - Quality control
+
+- **CIP (Construction Insurance Project)**
+  - Everything in CPT +
+  - Work insurance
+  - Warranty obligations
+  - Liability insurance
+  - Risk protection
+
+#### Implementation (DAP → DFU → DFP)
+- **DAP (Delivered At Project)**
+  - Implementation until finishing
+  - All rough works
+  - Engineering systems
+  - Finishing preparation
+
+- **DFU (Delivered Fully Unfurnished)**
+  - Everything in DAP +
+  - Final finishing
+  - Equipment installation
+  - Final works
+  - No furniture
+
+- **DFP (Delivered Fully Project)**
+  - Everything in DFU +
+  - Furniture
+  - Decoration
+  - Textiles
+  - Accessories
+  - Full readiness
+
+### 2. Responsibility Areas (Top to Bottom)
+
+#### Design
+- Measurements and analysis
+- Layout solutions
+- 3D visualizations
 - Working documentation
-- Material specifications
+- Specifications
+
+#### Materials
 - Material selection
-- Contractor selection
-- Cost estimation
-- Author's supervision
-- Project management
+- Quantity calculations
+- Availability check
+- Quality control
+- Logistics
+
+#### Construction
 - Preparatory works
-- Construction works
+- Demolition
+- Rough works
 - Engineering systems
-- Finishing works
-- Furniture
-- Decoration
+- Finish works
 
-### Interactive Features
-- Detailed information modal for each project stage
-- Clear responsibility distribution (Executor/Client)
-- Visual color coding for different project phases
-- Comprehensive risk assessment for each stage
+#### Management
+- Contractor selection
+- Work coordination
+- Timeline control
+- Budget management
+- Problem solving
 
-## Technical Details
+### 3. Interactive Features
 
-### Built With
-- React
-- Tailwind CSS
-- Lucide Icons
-- Modern JavaScript (ES6+)
+#### Detail Modals
+Click any matrix cell to see:
+- Exact scope of work
+- What's in/out
+- Responsibility zones
+- Implementation timelines
+- Possible risks
+- Recommendations
+
+#### Color Coding
+- 🟢 Green = Designer's responsibility
+- ⚪ Gray = Client's responsibility
+- 🔵 Blue = Basic design
+- 🟣 Purple = Implementation support
+- 🟡 Yellow = Construction
+- 🟠 Orange = Implementation
+
+#### Risk Assessment
+For each stage:
+- Technical risks
+- Management risks
+- Financial risks
+- Legal risks
+- Mitigation recommendations
+
+## Technical Stack
+
+### Frontend
+- **Framework**: React 18+
+- **Styling**: Tailwind CSS
+- **Icons**: Lucide
+- **Build**: Vite
+- **Formatting**: Prettier
+- **Linting**: ESLint
 
 ### Project Structure
+
+src/
+├── components/          # React components
+│   ├── ui/             # Reusable UI components
+│   └── stages/         # Stage-specific components
+├── data/               # Data and configuration
+│   └── stages/         # Stage information
+└── styles/             # Styles and constants
+
+### Performance
+- Lazy-loaded modals
+- Heavy computation memoization
+- Re-render optimization
+- Data caching
+
+## Development Plans
+
+### Upcoming Updates
+1. Multi-language Support
+   - Russian
+   - English
+   - Chinese
+   - Arabic
+
+2. Data Export
+   - PDF reports
+   - Excel sheets
+   - Presentations
+   - Documentation
+
+3. Integrations
+   - CRM systems
+   - Project management
+   - Document flow
+   - Accounting
+
+### Long-term Plans
+1. Mobile app
+2. Integration API
+3. Online matrix editor
+4. Template system
+
+## Contributing
+
+Want to help? Great!
+1. Fork the repo
+2. Create a feature branch
+3. Make changes
+4. Submit a pull request
+
+## License
+
+MIT - use it however you want, even in production.
+
+## Contact
+
+Questions? Ideas? Problems?
+- Create an issue
+- Write in discussions
+- Or contact directly
+
+## Credits
+
+Thanks to everyone who helped with development and testing!
