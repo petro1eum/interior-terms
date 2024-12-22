@@ -170,6 +170,26 @@ export const StageDetails = ({ stage }) => {
               </div>
             </section>
           )}
+
+          {/* Этика - новая секция */}
+          {stageDetails.ethics && (
+            <section className={styles.card}>
+              <SectionHeader icon={Info} title="Этика" color="purple" />
+              <div className="space-y-4">
+                {/* Этика исполнителя */}
+                <div className="bg-purple-50 p-4 rounded-lg">
+                  <h4 className="font-medium text-purple-900 mb-3">Обязательства исполнителя:</h4>
+                  <List items={stageDetails.ethics.contractor} color="purple" />
+                </div>
+
+                {/* Этика заказчика */}
+                <div className="bg-indigo-50 p-4 rounded-lg">
+                  <h4 className="font-medium text-indigo-900 mb-3">Обязательства заказчика:</h4>
+                  <List items={stageDetails.ethics.client} color="indigo" />
+                </div>
+              </div>
+            </section>
+          )}
         </div>
       </div>
     </div>

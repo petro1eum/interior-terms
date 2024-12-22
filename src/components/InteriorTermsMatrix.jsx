@@ -473,27 +473,32 @@ const InteriorTermsMatrix = () => {
           </p>
         </div>
 
-        <div className="mb-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="mb-6 grid grid-cols-1 md:grid-cols-4 gap-4">
           <div className="p-4 bg-green-50 rounded-lg">
             <h3 className="font-bold mb-2 text-green-800">Базовое проектирование</h3>
             <p className="text-sm text-green-700">
-              EBD → EPD → EFD: от эскизного проекта к полной документации
+              EBD → EPD → EFD: эскиз, проект, документация. Каждый следующий этап дополняет предыдущий.
             </p>
           </div>
+
           <div className="p-4 bg-blue-50 rounded-lg">
-            <h3 className="font-bold mb-2 text-blue-800">
-              Проектирование с поддержкой
-            </h3>
+            <h3 className="font-bold mb-2 text-blue-800">Проектирование с поддержкой</h3>
             <p className="text-sm text-blue-700">
-              FCA → FCS → FCM: от консультаций к управлению
+              FCA → FCS → FCM: консультации, надзор, управление. От разовых советов до полного контроля.
             </p>
           </div>
+
           <div className="p-4 bg-purple-50 rounded-lg">
-            <h3 className="font-bold mb-2 text-purple-800">
-              Строительство и реализация
-            </h3>
+            <h3 className="font-bold mb-2 text-purple-800">Строительство</h3>
             <p className="text-sm text-purple-700">
-              CBO → DFP: от организации к полной реализации
+              CBO → CPT → CIP: организация, команда, страхование. От базовых работ до полной ответственности.
+            </p>
+          </div>
+
+          <div className="p-4 bg-amber-50 rounded-lg">
+            <h3 className="font-bold mb-2 text-amber-800">Реализация</h3>
+            <p className="text-sm text-amber-700">
+              DAP → DFU → DFP: черновая, под ключ, полностью. От базовой подготовки до готового интерьера.
             </p>
           </div>
         </div>
