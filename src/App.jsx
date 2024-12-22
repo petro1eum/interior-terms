@@ -5,7 +5,7 @@ import { MatrixPage } from './pages/MatrixPage';
 import { Documentation } from './pages/Documentation';
 import { About } from './pages/About';
 
-function App() {
+const App = () => {
   return (
     <Layout>
       <Routes>
@@ -16,6 +16,6 @@ function App() {
       </Routes>
     </Layout>
   );
-}
+};
 
 export default App;
