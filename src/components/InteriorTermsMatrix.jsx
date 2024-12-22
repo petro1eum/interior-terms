@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
-import { Info, ChevronDown, ChevronUp, AlertTriangle } from 'lucide-react';
+import { Info, ChevronDown, ChevronUp, AlertTriangle, Download } from 'lucide-react';
 import { projectStages } from '@/data/stages';
 import { Modal } from '@/components/ui/modal';
 import { abbreviations } from '@/data/stages/abbreviations';
 import { styles } from '@/styles/constants';
 import { StageDetails } from '@/components/StageDetails';
+import { exportFullMatrixToPdf } from '@/utils/pdfExport';
 
 // Объединяем информацию из разных источников
 const stagesList = Object.entries(projectStages).map(([id, stage]) => ({
@@ -467,39 +468,52 @@ const InteriorTermsMatrix = () => {
     <Card className="w-full max-w-[1400px] p-4 mx-auto">
       <CardContent>
         <div className="mb-6">
-          <h2 className="text-2xl font-bold mb-2">InteriorTerms Matrix 1.0</h2>
-          <p className="text-gray-600">
-            Матрица распределения ответственности в проектах интерьера
-          </p>
-        </div>
-
-        <div className="mb-6 grid grid-cols-1 md:grid-cols-4 gap-4">
-          <div className="p-4 bg-green-50 rounded-lg">
-            <h3 className="font-bold mb-2 text-green-800">Базовое проектирование</h3>
-            <p className="text-sm text-green-700">
-              EBD → EPD → EFD: эскиз, проект, документация. Каждый следующий этап дополняет предыдущий.
-            </p>
+          <div className="flex justify-between items-center mb-4">
+            <div>
+              <h2 className="text-2xl font-bold mb-2">InteriorTerms Matrix 1.0</h2>
+              <p className="text-gray-600">
+                Матрица распределения ответственности в проектах интерьера
+              </p>
+            </div>
+            <button 
+              onClick={() => exportFullMatrixToPdf()}
+              className="flex items-center gap-2 px-4 py-2 bg-blue-50 hover:bg-blue-100 
+                         text-blue-600 rounded-lg transition-colors duration-200"
+            >
+              <Download className="w-5 h-5" />
+              <span>Экспорт матрицы</span>
+              <span className="text-sm text-blue-400 ml-1">v1.0</span>
+            </button>
           </div>
 
-          <div className="p-4 bg-blue-50 rounded-lg">
-            <h3 className="font-bold mb-2 text-blue-800">Проектирование с поддержкой</h3>
-            <p className="text-sm text-blue-700">
-              FCA → FCS → FCM: консультации, надзор, управление. От разовых советов до полного контроля.
-            </p>
-          </div>
+          <div className="mb-6 grid grid-cols-1 md:grid-cols-4 gap-4">
+            <div className="p-4 bg-green-50 rounded-lg">
+              <h3 className="font-bold mb-2 text-green-800">Базовое проектирование</h3>
+              <p className="text-sm text-green-700">
+                EBD → EPD → EFD: эскиз, проект, документация. Каждый следующий этап дополняет предыдущий.
+              </p>
+            </div>
 
-          <div className="p-4 bg-purple-50 rounded-lg">
-            <h3 className="font-bold mb-2 text-purple-800">Строительство</h3>
-            <p className="text-sm text-purple-700">
-              CBO → CPT → CIP: организация, команда, страхование. От базовых работ до полной ответственности.
-            </p>
-          </div>
+            <div className="p-4 bg-blue-50 rounded-lg">
+              <h3 className="font-bold mb-2 text-blue-800">Проектирование с поддержкой</h3>
+              <p className="text-sm text-blue-700">
+                FCA → FCS → FCM: консультации, надзор, управление. От разовых советов до полного контроля.
+              </p>
+            </div>
 
-          <div className="p-4 bg-amber-50 rounded-lg">
-            <h3 className="font-bold mb-2 text-amber-800">Реализация</h3>
-            <p className="text-sm text-amber-700">
-              DAP → DFU → DFP: черновая, под ключ, полностью. От базовой подготовки до готового интерьера.
-            </p>
+            <div className="p-4 bg-purple-50 rounded-lg">
+              <h3 className="font-bold mb-2 text-purple-800">Строительство</h3>
+              <p className="text-sm text-purple-700">
+                CBO → CPT → CIP: организация, команда, страхование. От базовых работ до полной ответственности.
+              </p>
+            </div>
+
+            <div className="p-4 bg-amber-50 rounded-lg">
+              <h3 className="font-bold mb-2 text-amber-800">Реализация</h3>
+              <p className="text-sm text-amber-700">
+                DAP → DFU → DFP: черновая, под ключ, полностью. От базовой подготовки до готового интерьера.
+              </p>
+            </div>
           </div>
         </div>
 
