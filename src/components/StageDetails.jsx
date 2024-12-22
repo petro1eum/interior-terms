@@ -60,10 +60,35 @@ export const StageDetails = ({ stage }) => {
 
         {/* Right column */}
         <div className="space-y-6">
-          <section className={styles.card}>
-            <SectionHeader icon={AlertTriangle} title="Риски" color="yellow" />
-            <RisksList risks={stageDetails.risks} />
-          </section>
+          {/* Исключения */}
+          {stageDetails.excluded && (
+            <section className={styles.card}>
+              <SectionHeader icon={AlertTriangle} title="Не включено" color="red" />
+              <div className="bg-red-50 p-4 rounded-lg space-y-4">
+                {typeof stageDetails.excluded === 'object' && !Array.isArray(stageDetails.excluded) ? (
+                  Object.entries(stageDetails.excluded).map(([category, items]) => (
+                    <div key={category}>
+                      {Array.isArray(items) && items.map((item, idx) => (
+                        <div key={idx} className="text-sm text-gray-700 mb-2">
+                          {item}
+                        </div>
+                      ))}
+                    </div>
+                  ))
+                ) : (
+                  <List items={stageDetails.excluded} color="red" />
+                )}
+              </div>
+            </section>
+          )}
+
+          {/* Risks */}
+          {stageDetails.risks && (
+            <section className={styles.card}>
+              <SectionHeader icon={AlertTriangle} title="Риски" color="yellow" />
+              <RisksList risks={stageDetails.risks} />
+            </section>
+          )}
         </div>
       </div>
     </div>

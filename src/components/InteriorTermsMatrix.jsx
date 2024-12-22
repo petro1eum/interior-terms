@@ -130,7 +130,7 @@ const DetailAccordion = ({ stage }) => {
             ))}
           </section>
 
-          {/* Результаты */}
+          {/* Результаты работ */}
           <section>
             <h4 className="font-bold text-xl mb-3">Результаты работ</h4>
             {stageDetails.deliverables.map((del, index) => (
@@ -145,6 +145,33 @@ const DetailAccordion = ({ stage }) => {
               </div>
             ))}
           </section>
+
+          {/* Не включено */}
+          {stageDetails.excluded && (
+            <section>
+              <h4 className="font-bold text-xl mb-3">Не включено</h4>
+              <div className="bg-red-50 p-4 rounded-lg">
+                {typeof stageDetails.excluded === 'object' && !Array.isArray(stageDetails.excluded) ? (
+                  Object.entries(stageDetails.excluded).map(([category, items]) => (
+                    <div key={category} className="mb-4 last:mb-0">
+                      <h5 className="font-semibold text-red-900 mb-2 capitalize">{category}</h5>
+                      <ul className="list-disc list-inside text-sm space-y-1">
+                        {items.map((item, idx) => (
+                          <li key={idx} className="text-gray-700">{item}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))
+                ) : (
+                  <ul className="list-disc list-inside text-sm space-y-1">
+                    {stageDetails.excluded.map((item, idx) => (
+                      <li key={idx} className="text-gray-700">{item}</li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            </section>
+          )}
 
           {/* Риски */}
           <section>
